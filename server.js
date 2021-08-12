@@ -1,6 +1,10 @@
-const express = require("express");
+const express = require("express");  // Web framework that handles routing stuff
+const connectDB = require('./config/db')
 
 const app = express() // initializing the express
+
+// Connect Database
+connectDB()
 
 // Init Middleware
 
@@ -20,6 +24,6 @@ app.get('/', (req, res) => res.json({ msg: 'Welcome to the ContactKeeper API..'}
 
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT /* production */ || 5000; /* Development */ 
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
